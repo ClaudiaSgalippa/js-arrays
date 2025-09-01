@@ -11,7 +11,15 @@ const teachers = [
 // 1. Inverti l'ordine degli insegnanti nell'array teachers
 // e salva il risultato nella variabile reversedTeachers
 
-const reversedTeachers = teachers.reverse();
+const reversedTeachers = [];
+
+for (let i = teachers.length - 1; i >= 0; i--) {
+  reversedTeachers.push(teachers[i]);
+
+}
+
+//const reversedTeachers = teachers.reverse();
+
 console.log(reversedTeachers);
 
 // 2. Crea un nuovo array chiamato 'longNames' che contenga solo gli insegnanti
@@ -20,27 +28,43 @@ console.log(reversedTeachers);
 const longNames = [];
 
 for (let i = 0; i < teachers.lenght; i++) {
-  const giustaLunghezza = teachers[i];
-
-  if (giustaLunghezza.lenght >= 5) {
-    longNames.push(giustaLunghezza);
+  
+  if (teachers[i].lenght >= 5) {
+    longNames.push(teachers[i]);
   }
 }
 
-console.log(longNames); //NON RIUSCITO SEGUENDO GUIDA
+console.log(longNames); 
 
 // 3. Rimuovi 'Ed' dall'array teachers
 
-teachers.splice(5);
+let indexEd = teachers.indexOf("Ed");
+  if (indexEd !== -1) {
+    teachers.splice(indexEd, 1);
+  }
+
+//teachers.splice(1,1);
 console.log(teachers);
 
 // 4. Verifica se 'Fabio' è presente nell'array teachers
 // e salva il risultato nella variabile isFabioPresent
 
-const isFabioPresent = teachers.find(teacher => teacher.isFabioPresent === "Fabio");
-console.log(isFabioPresent); //NON RIUSCITO USANDO FIND
+let inList = false;
+
+for (let i = 0; i < teachers.length; i++) {
+  if (teachers[i] === inList) {
+    inList = true;
+    break;
+
+  }
+}
+
+//const isFabioPresent = teachers.includes("Fabio");
+console.log(isFabioPresent); 
 
 // 5. Unisci tutti gli insegnanti nell'array teachers in una stringa separata da virgole e salvala nella variabile teachersString
 
-const teachersString = teachers.join(" ");
+const teachersString = teachers.toString();
+
+//const teachersString = teachers.join(" ");
 console.log(teachersString);
